@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Invoice Generator</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <h1>Invoice Generator</h1>
+
+  <div class="client-details">
+    <label>Client Name: <input type="text" id="client-name"></label>
+    <label>Invoice Date: <input type="date" id="invoice-date"></label>
+  </div>
+
+  <table id="invoice-table">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Price (₹)</th>
+        <th>Total (₹)</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+    <tbody id="invoice-body">
+    </tbody>
+  </table>
+
+  <button onclick="addRow()">Add Item</button>
+
+  <div class="totals">
+    <p>Subtotal: ₹<span id="subtotal">0.00</span></p>
+    <p>Tax (18%): ₹<span id="tax">0.00</span></p>
+    <p><strong>Grand Total: ₹<span id="grand-total">0.00</span></strong></p>
+  </div>
+
+  <button onclick="window.print()">Print Invoice</button>
+  <button onclick="downloadPDF()">Download as PDF</button>
+  <button onclick="saveData()">Save</button>
+  <button onclick="loadData()">Load</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
